@@ -1,0 +1,44 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .stats-preview {
+    margin-top: 3rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  .stats-preview h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .stats-preview ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .stats-preview li {
+    margin-bottom: 0.5rem;
+  }
+  
