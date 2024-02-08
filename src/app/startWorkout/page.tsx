@@ -1,13 +1,16 @@
-import Timer from '../pages/timer';
+import Clock from '../pages/workoutClock';
 import React from 'react';
 import Image from 'next/image';
+import TimerIcon from '@mui/icons-material/Timer';
+import Button from '@mui/material/Button';
 
 export default function startWorkout() {
   return (
     <div className="workout-container">
       <div className="workout-header">
         <div className="workout-title">Evening Workout</div>
-        <div className="workout-duration"><Timer initialTime={30} /></div>
+        <Button variant="contained" startIcon={<TimerIcon />}></Button>
+        <div className="workout-duration"><Clock initialTime={0} /></div>
       </div>
       
       <div className="workout-notes">
