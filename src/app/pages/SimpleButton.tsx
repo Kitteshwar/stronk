@@ -8,7 +8,7 @@ interface ButtonProps {
   }
 function Button({ content ,address}:ButtonProps){
     return(
-        <div className=" max-w-64 m-1 flex-auto bg-indigo-500 rounded-full">
+        <div className=" max-w-64 m-1 flex-auto bg-indigo-500 ">
         <Link href={address}>
             {/* /startWorkout */}
           <button className=''>{content}</button>

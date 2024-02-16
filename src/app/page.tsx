@@ -15,11 +15,7 @@ const HomePage: React.FC<HomePageProps> = () => {
 
         <SimpleButton content='Start a Workout ' address='/startWorkout'/>
         <SimpleButton content='Browse Exercises ' address='/exerciseLibrary'/>
-        <div className=" flex-auto m-1 max-w-64 bg-indigo-500 rounded-full">
-        <Link  href="/exerciseLibrary">
-          <button className="">Browse Exercises</button>
-        </Link>
-        </div>
+        
       </div>
       <div className="statsPreview ">
         <h3>Recent Progress</h3>
