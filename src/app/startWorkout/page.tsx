@@ -8,7 +8,7 @@ export default function StartWorkout() {
   const [showTimer, setShowTimer] = useState(false);
   const [timerClosed, setTimerClosed] = useState(false);
   const [timeLeftWhenClosed, setTimeLeftWhenClosed] = useState(0); // Track time left in the timer when it's closed
-  const timerRef = useRef(null); // Ref for accessing the timer component
+  const timerRef =  useRef<any | null>(null); // Ref for accessing the timer component
 
   const initialTime = 600; // Initial time in seconds (e.g., 10 minutes)
 
@@ -16,7 +16,9 @@ export default function StartWorkout() {
     setShowTimer(true);
     if (timerClosed) {
       // If the timer was closed previously, resume it from the time it was closed
-      timerRef.current.addTime(timeLeftWhenClosed - timerRef.current.getTimeLeft());
+      if (timerRef.current !== null) {
+        timerRef.current.addTime(timeLeftWhenClosed - timerRef.current.getTimeLeft());
+      }
       setTimerClosed(false);
     }
   };

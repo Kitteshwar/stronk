@@ -1,6 +1,6 @@
 // CountDownTimer.tsx
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import styles from '../styles/CountDownTimer.module.css'; // Import CSS for styling
 
 interface TimerProps {
@@ -9,7 +9,7 @@ interface TimerProps {
   resetOnClose?: boolean; // Optional boolean to control whether the timer should reset on close
 }
 
-const CountDownTimer: React.FC<TimerProps> = ({ initialTime, onFinish, resetOnClose = true }) => {
+const CountDownTimer: React.ForwardRefRenderFunction<unknown, TimerProps> = ({ initialTime, onFinish, resetOnClose = true }, ref) => {
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
   const [circleProgress, setCircleProgress] = useState(0); // Track circle progress
@@ -24,7 +24,7 @@ const CountDownTimer: React.FC<TimerProps> = ({ initialTime, onFinish, resetOnCl
       }, 1000);
     }
 
-    return () => clearInterval(intervalId);
+    return () => clearInterval(intervalId as any);
   }, [isRunning, initialTime, timeLeft]);
 
   const startTimer = () => setIsRunning(true);
@@ -50,9 +50,17 @@ const CountDownTimer: React.FC<TimerProps> = ({ initialTime, onFinish, resetOnCl
       onFinish();
     }
     if (resetOnClose) {
-     
+      resetTimer();
     }
   };
+
+  // Expose methods to parent component using ref
+  useImperativeHandle(ref, () => ({
+    startTimer,
+    pauseTimer,
+    resetTimer,
+    addTime
+  }));
 
   return (
     <div className={styles.countdownTimer}>
@@ -92,4 +100,5 @@ const CountDownTimer: React.FC<TimerProps> = ({ initialTime, onFinish, resetOnCl
   );
 };
 
-export default CountDownTimer;
+export default forwardRef(CountDownTimer);
+
