@@ -11,7 +11,7 @@ export interface TimerProps {
     const [isRunning, setIsRunning] = useState(false);
   
     useEffect(() => {
-      let intervalId: number | undefined;
+      let intervalId: NodeJS.Timeout | undefined | number;
   
       if (isRunning) {
         intervalId = setInterval(() => {
@@ -54,7 +54,6 @@ export interface TimerProps {
           </button>
           <button onClick={handleReset}>Reset</button>
         </div>
-        {onFinish && timeLeft === 0 && <onFinish />}
       </div>
     );
   };
