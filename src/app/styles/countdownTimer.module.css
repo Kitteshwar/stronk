@@ -1,0 +1,72 @@
+/* CountDownTimer.module.css */
+
+.countdownTimer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timerContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .timeDisplay {
+    font-size: 2em;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .progressCircle {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #ddd;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .progressBar {
+    width: 100%;
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    animation: progress 1s linear infinite;
+  }
+  
+  @keyframes progress {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ddd;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .button:hover {
+    background-color: #ccc;
+  }
+  
+  .button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  
