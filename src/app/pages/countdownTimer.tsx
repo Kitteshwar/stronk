@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import styles from '../styles/CountDownTimer.module.css'; // Import CSS for styling
+import { get } from 'http';
 
 interface TimerProps {
   initialTime: number; // Time in seconds
@@ -33,6 +34,8 @@ const CountDownTimer: React.ForwardRefRenderFunction<unknown, TimerProps> = ({ i
     setTimeLeft(initialTime);
     setCircleProgress(100); // Reset circle progress
   };
+  const getTimeLeft = () => timeLeft;
+
 
   const addTime = (amount: number) => {
     setTimeLeft(prevTimeLeft => Math.min(prevTimeLeft + amount, initialTime));
@@ -59,7 +62,8 @@ const CountDownTimer: React.ForwardRefRenderFunction<unknown, TimerProps> = ({ i
     startTimer,
     pauseTimer,
     resetTimer,
-    addTime
+    addTime,
+    getTimeLeft
   }));
 
   return (
