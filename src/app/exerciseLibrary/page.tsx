@@ -14,8 +14,7 @@ function ExerciseLibrary() {
     let screen = <ExerciseInfo exerciseName={CurrentExerciseName}/>
     function onClickHandler(exerciseName:string){
       setCurrentExerciseName(exerciseName)
-      // screen = <ExerciseInfo exerciseName={exerciseName}/>
-      console.log("hi");
+      
       
     }
 
